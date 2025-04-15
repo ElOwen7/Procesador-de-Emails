@@ -29,3 +29,16 @@ La aplicación en Streamlit se conecta a tu cuenta de Gmail, filtra correos por 
 
 - 4) Descargar un ZIP que incluye el CSV + todos los archivos adjuntos.
 
+## ¿Como iniciar Sesion?
+* 1- Ingresa tu direccion de correo electronico de GMAIL ejemplo(tucorreo@gmail.com)
+* 2- Ingresa tu contraseña de Aplicaciones. 
+ * * ¿No sabes como generearla? 
+     * 1) Asegurate de tener la verificacion en 2 pasos en tu cuenta.
+     * 2) Ingresa al siguiente enlace https://myaccount.google.com/apppasswords?rapt=AEjHL4OPNOmZIkj6KHhMRtMBHVOfwXP6Y_ZGAusSVDKGbMygT6kOaw-AfyGRlPACabLrrRKVzMKetZ7u-U7JoQVVXRCrYVhzt0j36KMhUuUs7vjPjTMpzqU
+     * 3) Inicia sesion con tu cuenta.
+     * 4) Escribe un nombre de app, y se generara tu contraseña de aplicacion, copiala y guardala en un lugar seguro.
+     * 5) Vuelve a https://procesador-de-emails-v1-otp.streamlit.app/ e inicia sesión con tu correo y la contraseña que acabas de generar.
+     
+     
+
+
