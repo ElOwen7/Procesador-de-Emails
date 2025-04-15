@@ -4,3 +4,4 @@ dotenv
 matplotlib
 seaborn
 streamlit
+openpyxl

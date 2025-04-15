@@ -1,6 +1,10 @@
 import os
 import pandas as pd
 import streamlit as st
+from openpyxl import Workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+from openpyxl.styles import Font
+from openpyxl.worksheet.hyperlink import Hyperlink
 from datetime import datetime, timedelta
 import zipfile
 from io import BytesIO
@@ -80,8 +84,43 @@ if "df_correo" in st.session_state:
 
     # ZIP
     zip_buffer = BytesIO()
+
     with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
-        zip_file.writestr("correos_filtrados.csv", csv)
+        # Crear Excel con hipervínculos
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Correos"
+
+        df_excel = df.copy()
+
+        # Crear encabezado
+        for col_idx, col_name in enumerate(df_excel.columns, 1):
+            cell = ws.cell(row=1, column=col_idx, value=col_name)
+            cell.font = Font(bold=True)
+
+        # Llenar datos
+        for row_idx, row in enumerate(df_excel.itertuples(index=False), 2):
+            for col_idx, value in enumerate(row, 1):
+                col_name = df_excel.columns[col_idx - 1]
+
+                if col_name == "attachment_name" and getattr(row, "attachment_path"):
+                    link = f"adjuntos/{getattr(row, 'attachment_name')}"
+                    cell = ws.cell(row=row_idx, column=col_idx)
+                    cell.value = getattr(row, "attachment_name")
+                    cell.hyperlink = link
+                    cell.style = "Hyperlink"
+                else:
+                    ws.cell(row=row_idx, column=col_idx, value=value)
+
+        # Guardar Excel en memoria
+        excel_buffer = BytesIO()
+        wb.save(excel_buffer)
+        excel_buffer.seek(0)
+
+        # Agregar Excel al ZIP
+        zip_file.writestr("correos_filtrados.xlsx", excel_buffer.read())
+
+        # Agregar adjuntos
         for i, row in df.iterrows():
             if row["attachment_path"] and os.path.exists(row["attachment_path"]):
                 with open(row["attachment_path"], "rb") as f:
@@ -90,8 +129,9 @@ if "df_correo" in st.session_state:
                     zip_file.writestr(arcname, file_data)
 
     zip_buffer.seek(0)
+
     st.download_button(
-        label="📦 Descargar ZIP (CSV + Adjuntos)",
+        label="📦 Descargar ZIP (Excel + Adjuntos)",
         data=zip_buffer,
         file_name="correos_y_adjuntos.zip",
         mime="application/zip"
