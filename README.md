@@ -20,7 +20,7 @@ La aplicación en Streamlit se conecta a tu cuenta de Gmail, filtra correos por 
 - Adjunto, si contiene un archivo .pdf, .doc o .docx (se descarga localmente).
 
 
-💻 ¿Qué puede hacer el usuario desde la interfaz?
+# 💻 ¿Qué puede hacer el usuario desde la interfaz?
 - 1) Ingresar una palabra clave del asunto y una fecha mínima.
 
 - 2) Procesar los correos con un botón.
