@@ -9,25 +9,23 @@ La aplicación en Streamlit se conecta a tu cuenta de Gmail, filtra correos por 
 - Solo toma correos a partir de la fecha especificada, sino se ingresa una tomara los ultimos 7 días.
 
 # 📤 Extracción de datos por correo:
- * Asunto del correo (que contiene un código de vacante).
+- Asunto del correo (que contiene un código de vacante).
 
-* Fecha de envío.
+- Fecha de envío.
 
-* Texto del cuerpo del correo.
+- Texto del cuerpo del correo.
 
-* Correo del remitente.
+- Correo del remitente.
 
-* Adjunto, si contiene un archivo .pdf, .doc o .docx (se descarga localmente).
+- Adjunto, si contiene un archivo .pdf, .doc o .docx (se descarga localmente).
 
 
 💻 ¿Qué puede hacer el usuario desde la interfaz?
-\t Ingresar una palabra clave del asunto y una fecha mínima.
+- 1) Ingresar una palabra clave del asunto y una fecha mínima.
 
-\t Procesar los correos con un botón.
+- 2) Procesar los correos con un botón.
 
-\t Ver los resultados en una tabla.
+- 3) Ver los resultados en una tabla.
 
-* Descargar:
-
-\t Un ZIP que incluye el CSV + todos los archivos adjuntos.
+- 4) Descargar un ZIP que incluye el CSV + todos los archivos adjuntos.
 
