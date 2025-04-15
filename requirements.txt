@@ -1,0 +1,6 @@
+polars
+pandas
+dotenv
+matplotlib
+seaborn
+streamlit
