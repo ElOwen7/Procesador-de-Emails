@@ -1,3 +1,5 @@
+# Pruebala AQUI: https://procesador-de-emails-v1-otp.streamlit.app/
+
 # Procesador-de-Emails
 Idealmente esta la herramienta busca automatizar el procesamiento de correos de postulantes a vacantes. Extraer sus CVs desde correos automáticamente, sin tener que entrar uno por uno a Gmail.
 
@@ -21,13 +23,13 @@ La aplicación en Streamlit se conecta a tu cuenta de Gmail, filtra correos por 
 
 
 # 💻 ¿Qué puede hacer el usuario desde la interfaz?
-- 1) Ingresar una palabra clave del asunto y una fecha mínima.
+- Ingresar una palabra clave del asunto y una fecha mínima.
 
-- 2) Procesar los correos con un botón.
+- Procesar los correos con un botón.
 
-- 3) Ver los resultados en una tabla.
+- Ver los resultados en una tabla.
 
-- 4) Descargar un ZIP que incluye el CSV + todos los archivos adjuntos.
+- Descargar un ZIP que incluye el Excel + todos los archivos adjuntos.
 
 ## ¿Como iniciar Sesion?
 * 1- Ingresa tu direccion de correo electronico de GMAIL ejemplo(tucorreo@gmail.com)
